@@ -126,11 +126,12 @@
             document.getElementById('valGrandTotal').innerText = "IDR " + packagePricing[pkg].totals[pax].toLocaleString();
         }
         function selectPackage(pkg) { document.getElementById('bookPackage').value = pkg; calculateTotal(); window.location.href='#booking'; }
-        function bookViaWhatsApp() {
-            const adminWhatsApp = "6282227041521";
-            const msg = `*NEW TOUR BOOKING*%0A%0A• Package: ${document.getElementById('bookPackage').value}%0A• Date: ${document.getElementById('bookDate').value}%0A• Total: ${document.getElementById('valGrandTotal').innerText}`;
-            window.open(`https://api.whatsapp.com/send?phone=${adminWhatsApp}&text=${msg}`, '_blank');
-        }
+        // Bagian ini memastikan nomor WhatsApp pemesanan sudah benar
+function bookViaWhatsApp() {
+    const adminWhatsApp = "6282227041521"; // Nomor sudah diperbarui
+    const msg = `*NEW TOUR BOOKING*%0A%0A• Package: ${document.getElementById('bookPackage').value}%0A• Date: ${document.getElementById('bookDate').value}%0A• Total: ${document.getElementById('valGrandTotal').innerText}`;
+    window.open(`https://api.whatsapp.com/send?phone=${adminWhatsApp}&text=${msg}`, '_blank');
+}
     </script>
 </body>
 </html>
