@@ -3,135 +3,259 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join Trip Jogja - Official Borobudur Climb-Up, Merapi Lava & Cave Adventures</title>
+    <meta name="description" content="Join Trip Jogja - Official Borobudur Sunrise, Merapi Lava Tour & Jomblang Cave. All prices include tickets, transport & fuel.">
+    <title>Join Trip Jogja - Borobudur, Merapi & Cave Adventure</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            content: [],
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Poppins', 'system-ui', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>body { font-family: 'Poppins', sans-serif; }</style>
+    
+    <style>
+        body { font-family: 'Poppins', system-ui, sans-serif; }
+        .hero-bg {
+            background-image: linear-gradient(to bottom, rgba(2,6,23,0.75), rgba(2,6,23,0.95)), url('borobudursun.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
 </head>
-<body class="bg-slate-950 text-slate-100 antialiased selection:bg-amber-500 selection:text-slate-950">
+<body class="bg-slate-950 text-slate-100 antialiased">
 
-    <!-- NAVIGATION -->
-    <nav class="fixed w-full bg-slate-950/85 backdrop-blur-md z-50 border-b border-slate-800/80">
-        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
-            <span class="text-2xl font-black tracking-wider bg-gradient-to-r from-amber-400 via-orange-500 to-amber-500 bg-clip-text text-transparent">JOIN TRIP<span class="text-white font-light">JOGJA</span></span>
-            <div class="hidden md:flex items-center space-x-8 text-sm font-semibold uppercase tracking-wider text-slate-300">
-                <a href="#home" class="hover:text-amber-400">Home</a>
-                <a href="#destinations" class="hover:text-amber-400">Destinations</a>
-                <a href="#pricing" class="hover:text-amber-400">Rates</a>
-                <a href="#booking" class="hover:text-amber-400">Book Now</a>
+    <!-- ================= NAVIGATION ================= -->
+    <nav class="fixed w-full bg-slate-950/90 backdrop-blur-md z-50 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2">
+                <span class="text-2xl font-black tracking-wider bg-gradient-to-r from-amber-400 via-orange-500 to-amber-500 bg-clip-text text-transparent">JOIN TRIP<span class="text-white font-light">JOGJA</span></span>
+            </a>
+
+            <div class="hidden md:flex items-center space-x-8 text-sm font-semibold uppercase tracking-wider">
+                <a href="#home" class="hover:text-amber-400 transition">Home</a>
+                <a href="#why-us" class="hover:text-amber-400 transition">Why Us</a>
+                <a href="#destinations" class="hover:text-amber-400 transition">Destinations</a>
+                <a href="#pricing" class="hover:text-amber-400 transition">Packages</a>
+                <a href="#booking" class="hover:text-amber-400 transition">Book Now</a>
+            </div>
+
+            <a href="#booking" class="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-slate-950 font-extrabold px-6 py-2.5 rounded-full text-xs uppercase tracking-wider">⚡ Book Now</a>
+            <button id="mobile-menu-btn" class="md:hidden text-3xl">☰</button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 py-6 border-t border-slate-800">
+            <div class="flex flex-col items-center space-y-6 text-lg font-medium">
+                <a href="#home" class="mobile-link">Home</a>
+                <a href="#why-us" class="mobile-link">Why Us</a>
+                <a href="#destinations" class="mobile-link">Destinations</a>
+                <a href="#pricing" class="mobile-link">Packages</a>
+                <a href="#booking" class="mobile-link">Book Now</a>
             </div>
         </div>
     </nav>
 
-    <!-- HERO -->
-    <section id="home" class="relative min-h-screen flex items-center justify-center text-center px-4 pt-20" style="background-image: linear-gradient(to bottom, rgba(2,6,23,0.65), rgba(2,6,23,0.95)), url('borobudursun.jpg'); background-size: cover; background-position: center;">
-        <div class="max-w-4xl mx-auto text-white">
-            <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">Explore the Wonders of <br><span class="text-amber-400">Temples, Lava & Caves</span></h1>
-            <p class="text-xl text-slate-300 mb-10 font-light">All tour prices already include entrance tickets to all featured destinations.</p>
-            <a href="#pricing" class="bg-gradient-to-r from-amber-500 to-orange-600 px-8 py-4 rounded-xl font-black uppercase text-sm shadow-xl">View Packages</a>
-        </div>
-    </section>
-
-    <!-- DESTINATIONS -->
-    <section id="destinations" class="py-24 bg-slate-950 px-4">
-        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-slate-900 rounded-3xl overflow-hidden border border-slate-800">
-                <img src="prambanan.jpg" class="w-full h-60 object-cover saturate-[0.85] contrast-[1.15]">
-                <div class="p-6"><h3 class="text-xl font-bold mb-2">Temple Tour</h3><p class="text-slate-400 text-xs">All entrance tickets are included in the price.</p></div>
-            </div>
-            <div class="bg-slate-900 rounded-3xl overflow-hidden border border-slate-800">
-                <img src="WhatsApp Image 2026-07-19 at 10.12.50.jpeg" class="w-full h-60 object-cover saturate-[0.9] contrast-[1.15]">
-                <div class="p-6"><h3 class="text-xl font-bold mb-2">Merapi Lava Tour</h3><p class="text-slate-400 text-xs">All entrance tickets are included in the price.</p></div>
-            </div>
-            <div class="bg-slate-900 rounded-3xl overflow-hidden border border-slate-800">
-                <img src="WhatsApp Image 2026-07-19 at 10.13.51.jpeg" class="w-full h-60 object-cover saturate-[0.9] contrast-[1.15]">
-                <div class="p-6"><h3 class="text-xl font-bold mb-2">Cave Adventure</h3><p class="text-slate-400 text-xs">All entrance tickets are included in the price.</p></div>
+    <!-- ================= HERO ================= -->
+    <section id="home" class="hero-bg min-h-screen flex items-center justify-center text-center px-4 pt-20">
+        <div class="max-w-4xl mx-auto">
+            <span class="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 text-amber-400 px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-widest mb-6">
+                <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span> 100% Guaranteed Climb-Up Access
+            </span>
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black mb-6 leading-tight tracking-tight">
+                Explore Borobudur, Merapi Lava & Caves
+            </h1>
+            <p class="text-lg text-slate-300 mb-10 max-w-2xl mx-auto">
+                Easy and safe tours with local experts. All prices include entrance tickets, private car, driver and fuel.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#pricing" class="bg-gradient-to-r from-amber-500 to-orange-600 text-slate-950 font-black px-8 py-4 rounded-xl text-sm uppercase tracking-wider">See Packages</a>
+                <a href="#booking" class="bg-slate-900/80 hover:bg-slate-800 border border-slate-700 px-8 py-4 rounded-xl text-sm uppercase tracking-wider">Book Now</a>
             </div>
         </div>
     </section>
 
-    <!-- PRICING -->
+    <!-- ================= DESTINATIONS / GALLERY ================= -->
+    <section id="destinations" class="py-20 bg-slate-900 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-black text-center mb-12">Our Adventure Destinations</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Temple Tour -->
+                <div class="bg-slate-800 rounded-3xl overflow-hidden">
+                    <img src="borobudursun.jpg" alt="Borobudur Temple" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl">Temple Tour</h3>
+                        <p class="text-slate-400 text-sm">Borobudur Sunrise & Prambanan Temple</p>
+                    </div>
+                </div>
+
+                <!-- Lava Tour -->
+                <div class="bg-slate-800 rounded-3xl overflow-hidden">
+                    <img src="WhatsApp Image 2026-07-19 at 10.12.50.jpeg" alt="Merapi Glowing Lava" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl">Merapi Lava Tour</h3>
+                        <p class="text-slate-400 text-sm">Glowing Lava View at Night</p>
+                    </div>
+                </div>
+
+                <!-- Cave Tour -->
+                <div class="bg-slate-800 rounded-3xl overflow-hidden">
+                    <img src="WhatsApp Image 2026-07-19 at 10.13.51.jpeg" alt="Jomblang Cave" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl">Cave Adventure</h3>
+                        <p class="text-slate-400 text-sm">Jomblang & Pindul Cave</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= PRICING ================= -->
     <section id="pricing" class="py-24 bg-slate-900 px-4">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-black text-center mb-16">Tour Packages</h2>
-            <!-- Disclaimer for Lava -->
-            <div class="bg-amber-950/30 border border-amber-500/50 p-6 rounded-2xl mb-12 max-w-3xl mx-auto text-center text-amber-200 text-sm">
-                <p>⚠️ <b>Important Note for Lava Tours:</b> Visibility of the Merapi lava flow is fully dependent on weather and natural conditions. Since this is a natural phenomenon beyond our control, we cannot guarantee that the lava flow will be visible.</p>
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-black mb-3">Tour Packages</h2>
+                <p class="text-slate-400">All prices include tickets, transport & fuel</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- P1 -->
-                <div class="bg-slate-950 rounded-3xl p-6 border-2 border-orange-500/40">
-                    <h4 class="text-xl font-bold mb-4">Borobudur Sunrise Only</h4>
-                    <p class="text-slate-400 text-xs mb-6">Price includes full entrance ticket.</p>
-                    <a href="#booking" onclick="selectPackage('Borobudur Sunrise Only Package')" class="block w-full text-center bg-orange-600 py-3 rounded-xl font-bold uppercase text-xs">Select & Book</a>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Temple Package -->
+                <div class="bg-slate-800 rounded-3xl overflow-hidden">
+                    <img src="prambanan.jpg" alt="Temple Tour" class="w-full h-52 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-1">Borobudur + Prambanan</h3>
+                        <p class="text-sm text-slate-400 mb-4">Temple Tour</p>
+                        <div class="text-3xl font-bold mb-6">IDR 2,000,000 <span class="text-sm font-normal text-slate-400">/group</span></div>
+                        <a href="#booking" onclick="selectPackage('Borobudur + Prambanan')" class="block text-center bg-amber-500 text-slate-950 py-3 rounded-2xl font-bold">Select</a>
+                    </div>
                 </div>
-                <!-- P2 -->
-                <div class="bg-slate-950 rounded-3xl p-6 border-2 border-pink-500">
-                    <h4 class="text-xl font-bold mb-4">Borobudur Sunrise + Prambanan</h4>
-                    <p class="text-slate-400 text-xs mb-6">Price includes all entrance tickets.</p>
-                    <a href="#booking" onclick="selectPackage('Borobudur Sunrise + Prambanan Package')" class="block w-full text-center bg-pink-600 py-3 rounded-xl font-bold uppercase text-xs">Select & Book</a>
+
+                <!-- Lava Package -->
+                <div class="bg-slate-800 rounded-3xl overflow-hidden">
+                    <img src="WhatsApp Image 2026-07-19 at 10.12.51.jpeg" alt="Lava Tour" class="w-full h-52 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-1">Merapi Glowing Lava</h3>
+                        <p class="text-sm text-slate-400 mb-4">Lava Tour</p>
+                        <div class="text-3xl font-bold mb-6">IDR 700,000 <span class="text-sm font-normal text-slate-400">/group</span></div>
+                        <p class="text-xs text-amber-400 mb-4">*Depends on weather and nature conditions. No guarantee.</p>
+                        <a href="#booking" onclick="selectPackage('Merapi Glowing Lava')" class="block text-center bg-amber-500 text-slate-950 py-3 rounded-2xl font-bold">Select</a>
+                    </div>
                 </div>
-                <!-- P3 -->
-                <div class="bg-slate-950 rounded-3xl p-6 border-2 border-emerald-500/40">
-                    <h4 class="text-xl font-bold mb-4">Borobudur Climb + Prambanan</h4>
-                    <p class="text-slate-400 text-xs mb-6">Price includes all entrance tickets.</p>
-                    <a href="#booking" onclick="selectPackage('Borobudur Reg Climb Up + Prambanan Package')" class="block w-full text-center bg-emerald-600 py-3 rounded-xl font-bold uppercase text-xs">Select & Book</a>
+
+                <!-- Cave Package -->
+                <div class="bg-slate-800 rounded-3xl overflow-hidden">
+                    <img src="WhatsApp Image 2026-07-19 at 10.24.50.jpeg" alt="Cave Tour" class="w-full h-52 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-1">Jomblang + Pindul Cave</h3>
+                        <p class="text-sm text-slate-400 mb-4">Cave Tour</p>
+                        <div class="text-3xl font-bold mb-6">IDR 1,200,000 <span class="text-sm font-normal text-slate-400">/group</span></div>
+                        <a href="#booking" onclick="selectPackage('Jomblang + Pindul Cave')" class="block text-center bg-amber-500 text-slate-950 py-3 rounded-2xl font-bold">Select</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- BOOKING -->
+    <!-- ================= BOOKING ================= -->
     <section id="booking" class="py-24 bg-slate-950 px-4">
-        <div class="max-w-lg mx-auto bg-slate-100 p-8 rounded-3xl text-slate-900">
-            <h3 class="text-2xl font-black mb-6">Calculate & Book</h3>
-            <div class="space-y-4">
-                <input type="date" id="bookDate" class="w-full p-3 rounded-xl border border-slate-300">
-                <select id="bookPackage" onchange="calculateTotal()" class="w-full p-3 rounded-xl border border-slate-300">
-                    <option value="Borobudur Sunrise + Prambanan Package">Borobudur Sunrise + Prambanan Package</option>
-                    <option value="Borobudur Sunrise Only Package">Borobudur Sunrise Only Package</option>
-                    <option value="Borobudur Reg Climb Up + Prambanan Package">Borobudur Reg Climb Up + Prambanan Package</option>
-                    <option value="Glowing Lava With Hiking Package">Glowing Lava With Hiking Package</option>
-                    <option value="Glowing Lava Non-Hiking Package">Glowing Lava Non-Hiking Package</option>
-                    <option value="Jomblang + Pindul Cave Package">Jomblang + Pindul Cave Package</option>
-                </select>
-                <select id="bookTravelers" onchange="calculateTotal()" class="w-full p-3 rounded-xl border border-slate-300">
-                    <option value="1">1 Person</option>
-                    <option value="2">2 People</option>
-                    <option value="3">3 People</option>
-                    <option value="4">4 People</option>
-                    <option value="5">5 People</option>
-                </select>
-                <div class="border-t pt-4 font-bold text-xl flex justify-between">
-                    <span>Grand Total</span>
-                    <span id="valGrandTotal">IDR 2,000,000</span>
+        <div class="max-w-lg mx-auto bg-slate-900 p-8 rounded-3xl">
+            <h2 class="text-3xl font-black text-center mb-8">Book Your Tour</h2>
+            
+            <div class="space-y-6">
+                <div>
+                    <label class="block text-sm mb-2">Departure Date</label>
+                    <input type="date" id="bookDate" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white">
                 </div>
-                <button onclick="bookViaWhatsApp()" class="w-full bg-green-500 text-white font-black py-4 rounded-xl">Book via WhatsApp</button>
+                <div>
+                    <label class="block text-sm mb-2">Select Package</label>
+                    <select id="bookPackage" onchange="calculateTotal()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white">
+                        <option value="Borobudur + Prambanan">Borobudur + Prambanan (Temple)</option>
+                        <option value="Merapi Glowing Lava">Merapi Glowing Lava</option>
+                        <option value="Jomblang + Pindul Cave">Jomblang + Pindul Cave</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm mb-2">Number of Travelers</label>
+                    <select id="bookTravelers" onchange="calculateTotal()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white">
+                        <option value="1">1 Person</option>
+                        <option value="2">2 People</option>
+                        <option value="3">3 People</option>
+                        <option value="4">4 People</option>
+                        <option value="5">5 People</option>
+                    </select>
+                </div>
             </div>
+
+            <div class="mt-8 bg-slate-800 p-6 rounded-2xl">
+                <div class="flex justify-between text-xl font-bold">
+                    <span>Total</span>
+                    <span id="valGrandTotal" class="text-amber-400">IDR 0</span>
+                </div>
+            </div>
+
+            <button onclick="bookViaWhatsApp()" class="mt-8 w-full bg-green-600 hover:bg-green-500 py-4 rounded-2xl font-bold text-lg">
+                Book via WhatsApp
+            </button>
         </div>
     </section>
 
     <script>
         const packagePricing = {
-            "Borobudur Sunrise + Prambanan Package": { totals: { 1: 2000000, 2: 3500000, 3: 4900000, 4: 6600000, 5: 8250000 }},
-            "Borobudur Sunrise Only Package": { totals: { 1: 1500000, 2: 2600000, 3: 3600000, 4: 4800000, 5: 6000000 }},
-            "Borobudur Reg Climb Up + Prambanan Package": { totals: { 1: 1500000, 2: 2500000, 3: 3400000, 4: 4500000, 5: 5750000 }},
-            "Glowing Lava With Hiking Package": { totals: { 1: 700000, 2: 800000, 3: 900000, 4: 1000000, 5: 1200000 }},
-            "Glowing Lava Non-Hiking Package": { totals: { 1: 600000, 2: 700000, 3: 750000, 4: 800000, 5: 1000000 }},
-            "Jomblang + Pindul Cave Package": { totals: { 1: 1200000, 2: 2000000, 3: 2800000, 4: 3500000, 5: 4300000 }}
+            "Borobudur + Prambanan": { totals: {1:2000000,2:3500000,3:4900000,4:6600000,5:8250000} },
+            "Merapi Glowing Lava": { totals: {1:700000,2:800000,3:900000,4:1000000,5:1200000} },
+            "Jomblang + Pindul Cave": { totals: {1:1200000,2:2000000,3:2800000,4:3500000,5:4300000} }
         };
+
+        function formatIDR(amount) {
+            return "IDR " + amount.toLocaleString('id-ID');
+        }
+
         function calculateTotal() {
             const pkg = document.getElementById('bookPackage').value;
-            const pax = document.getElementById('bookTravelers').value;
-            document.getElementById('valGrandTotal').innerText = "IDR " + packagePricing[pkg].totals[pax].toLocaleString();
+            const pax = parseInt(document.getElementById('bookTravelers').value);
+            const data = packagePricing[pkg];
+            if (data) document.getElementById('valGrandTotal').textContent = formatIDR(data.totals[pax]);
         }
-        function selectPackage(pkg) { document.getElementById('bookPackage').value = pkg; calculateTotal(); window.location.href='#booking'; }
-        // Bagian ini memastikan nomor WhatsApp pemesanan sudah benar
-function bookViaWhatsApp() {
-    const adminWhatsApp = "6282227041521"; // Nomor sudah diperbarui
-    const msg = `*NEW TOUR BOOKING*%0A%0A• Package: ${document.getElementById('bookPackage').value}%0A• Date: ${document.getElementById('bookDate').value}%0A• Total: ${document.getElementById('valGrandTotal').innerText}`;
-    window.open(`https://api.whatsapp.com/send?phone=${adminWhatsApp}&text=${msg}`, '_blank');
-}
+
+        function bookViaWhatsApp() {
+            const date = document.getElementById('bookDate').value || "Not selected";
+            const pkg = document.getElementById('bookPackage').value;
+            const pax = document.getElementById('bookTravelers').value;
+            const total = document.getElementById('valGrandTotal').textContent;
+
+            const message = `*New Booking*%0A%0ADate: ${date}%0APackage: ${pkg}%0APeople: ${pax}%0ATotal: ${total}%0A%0APlease confirm.`;
+            window.open(`https://wa.me/6282227041521?text=${message}`, '_blank');
+        }
+
+        function selectPackage(name) {
+            document.getElementById('bookPackage').value = name;
+            calculateTotal();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const dateInput = document.getElementById('bookDate');
+            if (dateInput) {
+                const tomorrow = new Date();
+                tomorrow.setDate(tomorrow.getDate() + 1);
+                dateInput.value = tomorrow.toISOString().split('T')[0];
+            }
+            calculateTotal();
+
+            // Mobile Menu
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            if (btn && menu) {
+                btn.addEventListener('click', () => {
+                    menu.classList.toggle('hidden');
+                    btn.textContent = menu.classList.contains('hidden') ? '☰' : '✕';
+                });
+            }
+        });
     </script>
 </body>
 </html>
