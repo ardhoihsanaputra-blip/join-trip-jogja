@@ -69,7 +69,7 @@
                 Explore Borobudur, Merapi Lava & Caves
             </h1>
             <p class="text-lg text-slate-300 mb-10 max-w-2xl mx-auto">
-                Easy and safe tours with local experts. All prices include official entrance tickets, transport, driver, and fuel. 100% Guaranteed Climb-Up Access! Mixed WNA & WNI groups welcome.
+                Easy and safe tours with local experts. All prices include official entrance tickets, transport, driver, and fuel. 100% Guaranteed Climb-Up Access!
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="#pricing" class="bg-gradient-to-r from-amber-500 to-orange-600 text-slate-950 font-black px-8 py-4 rounded-xl text-sm uppercase tracking-wider shadow-xl shadow-amber-500/20">See Promo Packages</a>
@@ -119,7 +119,7 @@
             <div class="text-center mb-16">
                 <span class="bg-red-500/20 text-red-400 text-xs px-4 py-1.5 rounded-full font-extrabold uppercase tracking-widest inline-block mb-3">⚡ Limited Time Promotion</span>
                 <h2 class="text-4xl font-black mb-3">All-In Tour Packages</h2>
-                <p class="text-slate-400">Save 30% when you book today! Mixed group bookings (Foreigner + Indonesian) automatically calculated.</p>
+                <p class="text-slate-400">Save 30% when you book today! We strictly sell Guaranteed Climb-Up access for Borobudur.</p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
@@ -255,7 +255,6 @@
                     <div>
                         <h4 class="font-bold text-white mb-3 flex items-center gap-2"><span class="text-red-400">✖</span> Notes & Disclaimers:</h4>
                         <ul class="space-y-2 text-slate-300">
-                            <li>• <strong>Mixed Group Bookings:</strong> You can mix International (WNA) and Indonesian (WNI) travelers in one booking. Our calculator automatically computes the fairest combined price!</li>
                             <li>• <strong>Pick-up Schedules:</strong> Borobudur Sunrise (03:30 AM) | Borobudur + Prambanan Regular (07:00 / 08:00 / 09:00 AM) | Cave Tours (07:00 AM) | Merapi Glowing Lava (07:00 PM).</li>
                             <li>• <span class="text-red-400 font-bold">MERAPI LAVA DISCLAIMER:</span> <strong>NO GUARANTEE</strong> to see glowing lava. Sighting depends 100% on natural conditions and volcanic activity. Customers must agree to accept this risk before booking.</li>
                             <li>• Personal expenses, general meals & optional local guide at Prambanan Temple.</li>
@@ -334,8 +333,8 @@
                     </div>
                 </div>
 
-                <!-- Pemilihan Campur WNA & WNI (Berlaku untuk SEMUA Paket) -->
-                <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+                <!-- 1. Pemilihan Campur WNA & WNI (HANYA MUNCUL UNTUK TEMPLE TOUR) -->
+                <div id="templeTravelersDiv" class="bg-slate-800/80 p-4 rounded-xl border border-slate-700 hidden">
                     <label class="block text-xs font-bold uppercase tracking-wider text-amber-400 mb-3">Number of Travelers (Mix Allowed)</label>
                     <div class="grid grid-cols-2 gap-4">
                         <div>
@@ -366,6 +365,18 @@
                     </div>
                 </div>
 
+                <!-- 2. Pemilihan Jumlah Orang Biasa (HANYA MUNCUL UNTUK MERAPI & GUA) -->
+                <div id="generalTravelersDiv" class="hidden">
+                    <label class="block text-sm font-medium mb-2">Number of Travelers</label>
+                    <select id="bookTravelersGeneral" onchange="calculateTotal()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 font-medium">
+                        <option value="1">1 Person</option>
+                        <option value="2">2 People</option>
+                        <option value="3">3 People</option>
+                        <option value="4">4 People</option>
+                        <option value="5">5 People</option>
+                    </select>
+                </div>
+
             </div>
 
             <!-- Total Calculation Display -->
@@ -394,8 +405,7 @@
     </section>
 
     <script>
-        // Database Harga Normal (Sudah dinaikkan +30% dari harga penawaran asli agar diskon 30% kembali tepat ke nominal jual Anda)
-        // Disusun otomatis untuk membedakan WNA dan WNI di semua paket
+        // Database Harga Normal (+30% agar setelah diskon 30% kembali tepat ke nominal penawaran Anda)
         const packagePricing = {
             "Borobudur + Prambanan": {
                 "WNA": { 1: 2150000, 2: 3442857, 3: 4735714, 4: 6028571, 5: 7321429 },
@@ -410,19 +420,10 @@
                 "WNI": { 1: 2071429, 2: 3285714, 3: 4500000, 4: 5714286, 5: 6928571 }
             },
             "Merapi Glowing Lava": {
-                "WNA": {
-                    "NonHiking": { 1: 785714,  2: 1000000, 3: 1214286, 4: 1428571, 5: 1714286 },
-                    "Hiking":    { 1: 1000000, 2: 1214286, 3: 1428571, 4: 1642857, 5: 1928571 }
-                },
-                "WNI": {
-                    "NonHiking": { 1: 785714,  2: 1000000, 3: 1214286, 4: 1428571, 5: 1714286 },
-                    "Hiking":    { 1: 1000000, 2: 1214286, 3: 1428571, 4: 1642857, 5: 1928571 }
-                }
+                "NonHiking": { 1: 785714,  2: 1000000, 3: 1214286, 4: 1428571, 5: 1714286 },
+                "Hiking":    { 1: 1000000, 2: 1214286, 3: 1428571, 4: 1642857, 5: 1928571 }
             },
-            "Jomblang + Pindul Cave": {
-                "WNA": { 1: 1714286, 2: 2857143, 3: 4000000, 4: 5000000, 5: 6142857 },
-                "WNI": { 1: 1714286, 2: 2857143, 3: 4000000, 4: 5000000, 5: 6142857 }
-            }
+            "Jomblang + Pindul Cave": { totals: {1: 1714286, 2: 2857143, 3: 4000000, 4: 5000000, 5: 6142857} }
         };
 
         function formatIDR(amount) {
@@ -434,58 +435,69 @@
             const templeOptions = document.getElementById('templeOptions');
             const merapiOptions = document.getElementById('merapiOptions');
             const regPickupDiv = document.getElementById('regPickupDiv');
+            
+            const templeTravelersDiv = document.getElementById('templeTravelersDiv');
+            const generalTravelersDiv = document.getElementById('generalTravelersDiv');
 
             // Reset visibility
             templeOptions.classList.add('hidden');
             merapiOptions.classList.add('hidden');
             regPickupDiv.classList.add('hidden');
+            templeTravelersDiv.classList.add('hidden');
+            generalTravelersDiv.classList.add('hidden');
 
-            // Cek jenis paket
+            // Cek jenis paket untuk menampilkan UI yang relevan
             if (pkg === "Borobudur + Prambanan" || pkg === "Borobudur Sunrise Only" || pkg === "Borobudur Sunrise + Prambanan") {
                 templeOptions.classList.remove('hidden');
-                // Tampilkan dropdown jam 7/8/9 AM HANYA jika pilih Borobudur + Prambanan Reguler
+                templeTravelersDiv.classList.remove('hidden'); // Tampilkan opsi campur WNA/WNI hanya untuk candi
+                
                 if (pkg === "Borobudur + Prambanan") {
                     regPickupDiv.classList.remove('hidden');
                 }
             } else if (pkg === "Merapi Glowing Lava") {
                 merapiOptions.classList.remove('hidden');
+                generalTravelersDiv.classList.remove('hidden'); // Tampilkan opsi jumlah orang biasa untuk Merapi
+            } else {
+                generalTravelersDiv.classList.remove('hidden'); // Tampilkan opsi jumlah orang biasa untuk Gua
             }
+            
             calculateTotal();
         }
 
         function calculateTotal() {
             const pkg = document.getElementById('bookPackage').value;
-            const paxWNA = parseInt(document.getElementById('bookWNA').value);
-            const paxWNI = parseInt(document.getElementById('bookWNI').value);
-            const totalPax = paxWNA + paxWNI;
-
-            document.getElementById('valTotalTravelers').textContent = `Total Group: ${totalPax} Person(s)`;
-
-            if (totalPax === 0) {
-                document.getElementById('valOriginal').textContent = "IDR 0";
-                document.getElementById('valSaving').textContent = "Save IDR 0";
-                document.getElementById('valGrandTotal').textContent = "IDR 0";
-                document.getElementById('valPerPax').textContent = "";
-                return;
-            }
-
-            // Gunakan patokan tier grup (maksimal tier 5 pax untuk menjaga akurasi pembagian biaya mobil)
-            const tierPax = Math.min(totalPax, 5);
             let normalPrice = 0;
+            let totalPax = 1;
 
             if (pkg === "Borobudur + Prambanan" || pkg === "Borobudur Sunrise Only" || pkg === "Borobudur Sunrise + Prambanan") {
+                const paxWNA = parseInt(document.getElementById('bookWNA').value);
+                const paxWNI = parseInt(document.getElementById('bookWNI').value);
+                totalPax = paxWNA + paxWNI;
+
+                document.getElementById('valTotalTravelers').textContent = `Total Group: ${totalPax} Person(s)`;
+
+                if (totalPax === 0) {
+                    document.getElementById('valOriginal').textContent = "IDR 0";
+                    document.getElementById('valSaving').textContent = "Save IDR 0";
+                    document.getElementById('valGrandTotal').textContent = "IDR 0";
+                    document.getElementById('valPerPax').textContent = "";
+                    return;
+                }
+
+                // Gunakan patokan tier grup (maksimal tier 5 pax untuk menjaga akurasi pembagian biaya mobil)
+                const tierPax = Math.min(totalPax, 5);
                 const rateWNA = packagePricing[pkg]["WNA"][tierPax] / tierPax;
                 const rateWNI = packagePricing[pkg]["WNI"][tierPax] / tierPax;
                 normalPrice = (rateWNA * paxWNA) + (rateWNI * paxWNI);
+
             } else if (pkg === "Merapi Glowing Lava") {
+                totalPax = parseInt(document.getElementById('bookTravelersGeneral').value);
                 const option = document.getElementById('bookMerapiOption').value;
-                const rateWNA = packagePricing[pkg]["WNA"][option][tierPax] / tierPax;
-                const rateWNI = packagePricing[pkg]["WNI"][option][tierPax] / tierPax;
-                normalPrice = (rateWNA * paxWNA) + (rateWNI * paxWNI);
+                normalPrice = packagePricing[pkg][option][totalPax];
+
             } else if (pkg === "Jomblang + Pindul Cave") {
-                const rateWNA = packagePricing[pkg]["WNA"][tierPax] / tierPax;
-                const rateWNI = packagePricing[pkg]["WNI"][tierPax] / tierPax;
-                normalPrice = (rateWNA * paxWNA) + (rateWNI * paxWNI);
+                totalPax = parseInt(document.getElementById('bookTravelersGeneral').value);
+                normalPrice = packagePricing[pkg].totals[totalPax];
             }
 
             if (normalPrice) {
@@ -505,13 +517,21 @@
         function bookViaWhatsApp() {
             const date = document.getElementById('bookDate').value || "Not selected";
             const pkg = document.getElementById('bookPackage').value;
-            const paxWNA = parseInt(document.getElementById('bookWNA').value);
-            const paxWNI = parseInt(document.getElementById('bookWNI').value);
-            const totalPax = paxWNA + paxWNI;
+            let totalPax = 1;
+            let travelersDetail = "";
 
-            if (totalPax === 0) {
-                alert("Please select at least 1 traveler (WNA or WNI) to proceed with booking.");
-                return;
+            if (pkg === "Borobudur + Prambanan" || pkg === "Borobudur Sunrise Only" || pkg === "Borobudur Sunrise + Prambanan") {
+                const paxWNA = parseInt(document.getElementById('bookWNA').value);
+                const paxWNI = parseInt(document.getElementById('bookWNI').value);
+                totalPax = paxWNA + paxWNI;
+                if (totalPax === 0) {
+                    alert("Please select at least 1 traveler (WNA or WNI) to proceed with booking.");
+                    return;
+                }
+                travelersDetail = `${totalPax} Person(s) -> [${paxWNA} Foreigner (WNA), ${paxWNI} Indonesian (WNI)]`;
+            } else {
+                totalPax = parseInt(document.getElementById('bookTravelersGeneral').value);
+                travelersDetail = `${totalPax} Person(s)`;
             }
 
             const original = document.getElementById('valOriginal').textContent;
@@ -548,8 +568,6 @@
             } else if (pkg === "Jomblang + Pindul Cave") {
                 extraInfo += `%0AOption: Private Transport All-In Package`;
             }
-
-            const travelersDetail = `${totalPax} Person(s) -> [${paxWNA} Foreigner (WNA), ${paxWNI} Indonesian (WNI)]`;
 
             const message = `*New Booking Inquiry (30% OFF Claimed) - Join Trip Jogja*%0A%0A*Tour Package:* ${pkg}${extraInfo}%0A*Departure Date:* ${date}%0A*Selected Pick-up Time:* ${pickUpTime}%0A*Travelers:* ${travelersDetail}%0A%0A*Original Price:* ~${original}~%0A*Promo Total (30% OFF):* ${promoTotal} (${saving})%0A%0APlease check availability and confirm my discounted booking!`;
             window.open(`https://wa.me/6282227041521?text=${message}`, '_blank');
