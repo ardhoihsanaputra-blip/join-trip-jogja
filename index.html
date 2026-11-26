@@ -26,7 +26,8 @@
 <meta name="twitter:title" content="Borobudur Sunrise & Merapi Lava Tour Jogja">
 <meta name="twitter:description" content="Private tours in Yogyakarta with English-speaking drivers. Tickets and climb-up access included.">
 <meta name="twitter:image" content="https://jointripjogja.my.id/borobudur-sunrise-tour-jogja.webp">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛕</text></svg>">
+<link rel="icon" type="image/png" sizes="192x192" href="https://jointripjogja.my.id/logo.png">
+<link rel="apple-touch-icon" href="https://jointripjogja.my.id/logo.png">
 <link rel="preload" as="image" href="borobudur-sunrise-tour-jogja.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,6 +42,7 @@
    "@id": "https://jointripjogja.my.id/#business",
    "name": "Join Trip Jogja",
    "url": "https://jointripjogja.my.id/",
+   "logo": "https://jointripjogja.my.id/logo.png",
    "image": "https://jointripjogja.my.id/borobudur-sunrise-tour-jogja.webp",
    "telephone": "+6282227041521",
    "priceRange": "IDR 396,000 - IDR 1,682,000",
@@ -166,6 +168,9 @@ button{background:transparent;cursor:pointer}
 .hero-bg{background-image:linear-gradient(to bottom,rgba(2,6,23,.75),rgba(2,6,23,.95)),url('borobudur-sunrise-tour-jogja.webp');background-size:cover;background-position:center}
 a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #f59e0b;outline-offset:2px}
 
+.brand-logo-wrap{display:inline-flex;align-items:center;justify-content:center;background-color:#ffffff;padding:2px;border-radius:9999px;flex-shrink:0}
+.brand-logo-img{width:38px;height:38px;border-radius:9999px;object-fit:cover}
+
 /* Component classes */
 .card{background-color:#1e293b;border-radius:1.5rem;overflow:hidden;border-width:1px;border-color:#334155;display:flex;flex-direction:column;justify-content:space-between;position:relative;box-shadow:0 20px 25px -5px rgba(0,0,0,.25),0 8px 10px -6px rgba(0,0,0,.25)}
 .badge-off{position:absolute;top:1rem;right:1rem;background-color:#b91c1c;color:#ffffff;font-size:11px;font-weight:800;text-transform:uppercase;padding:.25rem .625rem;border-radius:.375rem;box-shadow:0 4px 6px -1px rgba(0,0,0,.3);z-index:10}
@@ -199,7 +204,7 @@ a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{ou
 .flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}
 .items-start{align-items:flex-start}.items-center{align-items:center}.items-baseline{align-items:baseline}
 .justify-center{justify-content:center}.justify-between{justify-content:space-between}
-.gap-1{gap:.25rem}.gap-2{gap:.5rem}.gap-2\.5{gap:.625rem}.gap-4{gap:1rem}.gap-8{gap:2rem}
+.gap-1{gap:.25rem}.gap-2{gap:.5rem}.gap-2\.5{gap:.625rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}.gap-8{gap:2rem}
 .space-x-8>:not([hidden])~:not([hidden]){margin-left:2rem}
 .space-y-1>:not([hidden])~:not([hidden]){margin-top:.25rem}
 .space-y-2>:not([hidden])~:not([hidden]){margin-top:.5rem}
@@ -283,7 +288,10 @@ a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{ou
 <body class="bg-slate-950 text-slate-100 antialiased">
 <nav class="fixed w-full bg-slate-950/90 backdrop-blur-md z-50 border-b border-slate-800" aria-label="Main">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-<a href="#home" class="text-2xl font-black tracking-wider bg-gradient-to-r from-amber-400 via-orange-500 to-amber-500 bg-clip-text text-transparent">JOIN TRIP<span class="text-white font-light">JOGJA</span></a>
+<a href="#home" class="inline-flex items-center gap-3">
+<span class="brand-logo-wrap"><img src="logo.png" alt="Join Trip Jogja logo" width="38" height="38" class="brand-logo-img" decoding="async"></span>
+<span class="text-2xl font-black tracking-wider bg-gradient-to-r from-amber-400 via-orange-500 to-amber-500 bg-clip-text text-transparent">JOIN TRIP<span class="text-white font-light">JOGJA</span></span>
+</a>
 <div class="hidden md:flex items-center space-x-8 text-sm font-semibold uppercase tracking-wider">
 <a href="#home" class="hover:text-amber-400 transition">Home</a><a href="#destinations" class="hover:text-amber-400 transition">Destinations</a><a href="#pricing" class="hover:text-amber-400 transition">Packages</a><a href="#faq" class="hover:text-amber-400 transition">FAQ</a><a href="#booking" class="hover:text-amber-400 transition">Book Now</a>
 </div>
@@ -446,7 +454,13 @@ a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{ou
 </main>
 <footer class="bg-slate-900 border-t border-slate-800 py-12 px-4 text-sm text-slate-400">
 <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-<div><p class="text-white font-bold text-lg mb-2">Join Trip Jogja</p><p>Borobudur, Merapi and cave tours in Yogyakarta with local, English-speaking drivers.</p></div>
+<div>
+<div class="flex items-center gap-3 mb-2">
+<span class="brand-logo-wrap"><img src="logo.png" alt="Join Trip Jogja logo" width="38" height="38" class="brand-logo-img" loading="lazy" decoding="async"></span>
+<p class="text-white font-bold text-lg">Join Trip Jogja</p>
+</div>
+<p>Borobudur, Merapi and cave tours in Yogyakarta with local, English-speaking drivers.</p>
+</div>
 <div><p class="text-white font-semibold mb-2">Contact</p><address class="not-italic space-y-1">
 <p>WhatsApp: <a class="text-amber-400 hover:underline" href="https://wa.me/6282227041521" rel="noopener">+62 822-2704-1521</a></p>
 <p>Griya Karanganyar, Widodomartani, Ngemplak, Sleman, Daerah Istimewa Yogyakarta 55584</p>
