@@ -27,7 +27,11 @@
 <meta name="twitter:description" content="Private tours in Yogyakarta with English-speaking drivers. Tickets and climb-up access included.">
 <meta name="twitter:image" content="https://prambanan.biz.id/borobudur-sunrise-tour-jogja.webp">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛕</text></svg>">
-<link rel="preload" as="image" href="borobudur-sunrise-tour-jogja.webp">
+<link rel="preload" as="image" href="borobudur-sunrise-tour-jogja.webp" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap"></noscript>
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -148,28 +152,132 @@
  ]
 }
 </script>
-<script src="https://cdn.tailwindcss.com"></script>
-<script>tailwind.config={theme:{extend:{fontFamily:{sans:['Poppins','system-ui','sans-serif']}}}}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<style type="text/tailwindcss">
-@layer components{
-.card{@apply bg-slate-800 rounded-3xl overflow-hidden border border-slate-700 flex flex-col justify-between relative shadow-xl}
-.badge-off{@apply absolute top-4 right-4 bg-red-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-md shadow-md z-10}
-.tag{@apply text-xs px-3 py-1 rounded-full font-bold uppercase}
-.pick{@apply text-xs bg-slate-900 px-2.5 py-1 rounded-lg border border-slate-700 font-semibold}
-.old{@apply text-xs text-red-400 line-through font-semibold}
-.new{@apply text-3xl font-black text-amber-400 mb-2}
-.sel{@apply block text-center bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-slate-950 py-3 rounded-2xl font-black transition}
-.field{@apply w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500}
-}
-</style>
 <style>
-body{font-family:'Poppins',system-ui,sans-serif}
-.new small{font-size:.875rem;font-weight:400;color:#94a3b8}
+*,::before,::after{box-sizing:border-box;border:0 solid #1e293b}
+html{line-height:1.5;-webkit-text-size-adjust:100%;font-family:'Poppins',system-ui,-apple-system,sans-serif;scroll-behavior:smooth}
+body{margin:0;background-color:#020617;color:#f1f5f9;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+h1,h2,h3,h4,p,ul,details{margin:0}
+ul{list-style:none;padding:0}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button,input,select{font-family:inherit;font-size:100%;color:inherit;margin:0}
+button{background:transparent;cursor:pointer}
+
 .hero-bg{background-image:linear-gradient(to bottom,rgba(2,6,23,.75),rgba(2,6,23,.95)),url('borobudur-sunrise-tour-jogja.webp');background-size:cover;background-position:center}
 a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #f59e0b;outline-offset:2px}
+
+/* Component classes */
+.card{background-color:#1e293b;border-radius:1.5rem;overflow:hidden;border-width:1px;border-color:#334155;display:flex;flex-direction:column;justify-content:space-between;position:relative;box-shadow:0 20px 25px -5px rgba(0,0,0,.25),0 8px 10px -6px rgba(0,0,0,.25)}
+.badge-off{position:absolute;top:1rem;right:1rem;background-color:#b91c1c;color:#ffffff;font-size:11px;font-weight:800;text-transform:uppercase;padding:.25rem .625rem;border-radius:.375rem;box-shadow:0 4px 6px -1px rgba(0,0,0,.3);z-index:10}
+.tag{font-size:.75rem;padding:.25rem .75rem;border-radius:9999px;font-weight:700;text-transform:uppercase;display:inline-block}
+.pick{font-size:.75rem;background-color:#0f172a;padding:.25rem .625rem;border-radius:.5rem;border-width:1px;border-color:#334155;font-weight:600}
+.old{font-size:.75rem;color:#fca5a5;text-decoration:line-through;font-weight:600}
+.new{font-size:1.875rem;line-height:2.25rem;font-weight:800;color:#fbbf24;margin-bottom:.5rem}
+.new small{font-size:.875rem;font-weight:400;color:#cbd5e1}
+.sel{display:block;text-align:center;background-image:linear-gradient(to right,#f59e0b,#ea580c);color:#020617;padding:.75rem 1rem;border-radius:1rem;font-weight:800;transition:filter .15s}
+.sel:hover{filter:brightness(1.08)}
+.field{width:100%;background-color:#1e293b;border-width:1px;border-color:#475569;border-radius:.75rem;padding:.75rem 1rem;color:#ffffff}
+.field:focus{outline:none;border-color:#f59e0b}
+
+/* High-contrast tag variants */
+.bg-red-500\/20{background-color:#7f1d1d}
+.text-red-400{color:#fecaca}
+.bg-amber-500\/20{background-color:#78350f}
+.text-amber-400{color:#fde68a}
+.bg-orange-500\/20{background-color:#7c2d12}
+.text-orange-400{color:#fed7aa}
+.bg-blue-500\/20{background-color:#1e3a8a}
+.text-blue-400{color:#bfdbfe}
+.bg-emerald-500\/20{background-color:#064e3b}
+.text-emerald-400{color:#a7f3d0}
+
+/* Utility classes */
+.fixed{position:fixed}.relative{position:relative}.absolute{position:absolute}
+.bottom-5{bottom:1.25rem}.right-5{right:1.25rem}.-top-10{top:-2.5rem}.-right-10{right:-2.5rem}
+.z-40{z-index:40}.z-50{z-index:50}
+.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}
+.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}
+.items-start{align-items:flex-start}.items-center{align-items:center}.items-baseline{align-items:baseline}
+.justify-center{justify-content:center}.justify-between{justify-content:space-between}
+.gap-1{gap:.25rem}.gap-2{gap:.5rem}.gap-2\.5{gap:.625rem}.gap-4{gap:1rem}.gap-8{gap:2rem}
+.space-x-8>:not([hidden])~:not([hidden]){margin-left:2rem}
+.space-y-1>:not([hidden])~:not([hidden]){margin-top:.25rem}
+.space-y-2>:not([hidden])~:not([hidden]){margin-top:.5rem}
+.space-y-3>:not([hidden])~:not([hidden]){margin-top:.75rem}
+.space-y-4>:not([hidden])~:not([hidden]){margin-top:1rem}
+.space-y-5>:not([hidden])~:not([hidden]){margin-top:1.25rem}
+.space-y-6>:not([hidden])~:not([hidden]){margin-top:1.5rem}
+.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.w-4{width:1rem}.h-4{height:1rem}.w-14{width:3.5rem}.h-14{height:3.5rem}.w-32{width:8rem}.h-32{height:8rem}.h-20{height:5rem}.h-48{height:12rem}.h-64{height:16rem}
+.w-full{width:100%}.min-h-screen{min-height:100vh}
+.max-w-lg{max-width:32rem}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-4xl{max-width:56rem}.max-w-6xl{max-width:72rem}.max-w-7xl{max-width:80rem}
+.mx-auto{margin-left:auto;margin-right:auto}
+.mb-1{margin-bottom:.25rem}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mb-10{margin-bottom:2.5rem}.mb-12{margin-bottom:3rem}.mb-16{margin-bottom:4rem}
+.mt-0\.5{margin-top:.125rem}.mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.mt-3{margin-top:.75rem}.mt-6{margin-top:1.5rem}.mt-8{margin-top:2rem}
+.p-2\.5{padding:.625rem}.p-3{padding:.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.p-8{padding:2rem}
+.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}
+.py-1\.5{padding-top:.375rem;padding-bottom:.375rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-2\.5{padding-top:.625rem;padding-bottom:.625rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-20{padding-top:5rem;padding-bottom:5rem}.py-24{padding-top:6rem;padding-bottom:6rem}
+.pt-0{padding-top:0}.pt-3{padding-top:.75rem}.pt-6{padding-top:1.5rem}.pt-20{padding-top:5rem}
+.overflow-hidden{overflow:hidden}.object-cover{object-fit:cover}.pointer-events-none{pointer-events:none}
+.rounded{border-radius:.25rem}.rounded-lg{border-radius:.5rem}.rounded-xl{border-radius:.75rem}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}
+.border{border-width:1px}.border-t{border-top-width:1px}.border-b{border-bottom-width:1px}
+.border-slate-700{border-color:#334155}.border-slate-700\/50{border-color:rgba(51,65,85,.5)}.border-slate-800{border-color:#1e293b}
+.border-red-500\/30{border-color:rgba(239,68,68,.4)}.border-amber-500\/30{border-color:rgba(245,158,11,.4)}
+.bg-slate-950{background-color:#020617}.bg-slate-950\/90{background-color:rgba(2,6,23,.92)}.bg-slate-900{background-color:#0f172a}.bg-slate-900\/80{background-color:rgba(15,23,42,.85)}
+.bg-slate-800{background-color:#1e293b}.bg-slate-800\/50{background-color:rgba(30,41,59,.6)}.bg-slate-800\/80{background-color:rgba(30,41,59,.85)}.bg-slate-800\/90{background-color:rgba(30,41,59,.92)}
+.bg-red-500\/10{background-color:rgba(127,29,29,.45)}.bg-amber-500\/10{background-color:rgba(245,158,11,.1)}.bg-green-600{background-color:#15803d}
+.bg-gradient-to-r{background-image:linear-gradient(to right,var(--tw-gradient-stops))}
+.from-amber-400{--tw-gradient-from:#fbbf24;--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to,rgba(251,191,36,0))}
+.via-orange-500{--tw-gradient-stops:var(--tw-gradient-from),#f97316,var(--tw-gradient-to,rgba(249,115,22,0))}
+.to-amber-500{--tw-gradient-to:#f59e0b}
+.from-amber-500{--tw-gradient-from:#f59e0b;--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to,rgba(245,158,11,0))}
+.to-orange-600{--tw-gradient-to:#ea580c}
+.from-red-600{--tw-gradient-from:#b91c1c;--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to,rgba(185,28,28,0))}
+.to-amber-600{--tw-gradient-to:#b45309}
+.from-green-600{--tw-gradient-from:#15803d;--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to,rgba(21,128,61,0))}
+.via-emerald-600{--tw-gradient-stops:var(--tw-gradient-from),#047857,var(--tw-gradient-to,rgba(4,120,87,0))}
+.to-green-600{--tw-gradient-to:#15803d}
+.bg-clip-text{-webkit-background-clip:text;background-clip:text}
+.text-transparent{color:transparent}
+.text-white{color:#ffffff}.text-slate-950{color:#020617}.text-slate-300{color:#e2e8f0}.text-slate-400{color:#cbd5e1}
+.text-red-300{color:#fecaca}.text-blue-300{color:#bfdbfe}.text-green-400{color:#86efac}
+.text-center{text-align:center}.text-right{text-align:right}
+.text-\[11px\]{font-size:11px}.text-xs{font-size:.75rem;line-height:1rem}.text-sm{font-size:.875rem;line-height:1.25rem}
+.text-lg{font-size:1.125rem;line-height:1.75rem}.text-xl{font-size:1.25rem;line-height:1.75rem}
+.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}
+.font-light{font-weight:300}.font-medium{font-weight:500}.font-semibold{font-weight:600}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-black{font-weight:800}
+.uppercase{text-transform:uppercase}.not-italic{font-style:normal}.line-through{text-decoration:line-through}
+.leading-tight{line-height:1.25}.leading-relaxed{line-height:1.625}
+.tracking-tight{letter-spacing:-0.025em}.tracking-wider{letter-spacing:.05em}.tracking-widest{letter-spacing:.1em}
+.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.25),0 4px 6px -4px rgba(0,0,0,.25)}
+.shadow-xl{box-shadow:0 20px 25px -5px rgba(0,0,0,.3),0 8px 10px -6px rgba(0,0,0,.3)}
+.shadow-2xl{box-shadow:0 25px 50px -12px rgba(0,0,0,.45)}
+.backdrop-blur-md{-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.blur-xl{filter:blur(24px)}
+.transition{transition-property:color,background-color,border-color,transform,filter;transition-duration:.15s}
+.accent-amber-500{accent-color:#f59e0b}
+.hover\:text-amber-400:hover{color:#fbbf24}
+.hover\:bg-slate-800:hover{background-color:#1e293b}
+.hover\:bg-green-500:hover{background-color:#16a34a}
+.hover\:underline:hover{text-decoration:underline}
+
+@media(min-width:640px){
+  .sm\:inline-block{display:inline-block}
+  .sm\:flex-row{flex-direction:row}
+  .sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}
+  .sm\:text-6xl{font-size:3.75rem;line-height:1}
+}
+@media(min-width:768px){
+  .md\:flex{display:flex}
+  .md\:hidden{display:none}
+  .md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .md\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(min-width:1024px){
+  .lg\:px-8{padding-left:2rem;padding-right:2rem}
+  .lg\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .lg\:text-7xl{font-size:4.5rem;line-height:1}
+}
 </style>
 </head>
 <body class="bg-slate-950 text-slate-100 antialiased">
@@ -188,11 +296,11 @@ a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{ou
 <main>
 <section id="home" class="hero-bg min-h-screen flex items-center justify-center text-center px-4 pt-20">
 <div class="max-w-4xl mx-auto">
-<span class="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-amber-600 text-white px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-widest mb-6 shadow-lg shadow-red-900/40">🔥 Special Offer: Save 25% OFF Today!</span>
+<span class="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-amber-600 text-white px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-widest mb-6 shadow-lg">🔥 Special Offer: Save 25% OFF Today!</span>
 <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black mb-6 leading-tight tracking-tight">Borobudur Sunrise, Merapi Lava & Cave Tours in Yogyakarta</h1>
 <p class="text-lg text-slate-300 mb-10 max-w-2xl mx-auto">Private tours with a local, English-speaking driver. Entrance tickets, transport, fuel and water are included. Every Borobudur tour includes climb-up access.</p>
 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-<a href="#pricing" class="bg-gradient-to-r from-amber-500 to-orange-600 text-slate-950 font-black px-8 py-4 rounded-xl text-sm uppercase tracking-wider shadow-xl shadow-amber-500/20">See Promo Packages</a>
+<a href="#pricing" class="bg-gradient-to-r from-amber-500 to-orange-600 text-slate-950 font-black px-8 py-4 rounded-xl text-sm uppercase tracking-wider shadow-xl">See Promo Packages</a>
 <a href="#booking" class="bg-slate-900/80 hover:bg-slate-800 border border-slate-700 px-8 py-4 rounded-xl text-sm uppercase tracking-wider">Book Now</a>
 </div></div>
 </section>
@@ -201,9 +309,9 @@ a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{ou
 <div class="max-w-6xl mx-auto">
 <h2 id="dest-h" class="text-4xl font-black text-center mb-12">Our Adventure Destinations</h2>
 <div class="grid md:grid-cols-3 gap-8">
-<article class="bg-slate-800 rounded-3xl overflow-hidden shadow-lg"><img src="borobudur-sunrise-tour-jogja.webp" alt="Sunrise over Borobudur temple in Yogyakarta" width="640" height="384" loading="lazy" class="w-full h-64 object-cover"><div class="p-6"><h3 class="font-bold text-xl">Temple Tour</h3><p class="text-slate-400 text-sm">Borobudur Sunrise & Prambanan, with climb-up access to the Borobudur structure.</p></div></article>
-<article class="bg-slate-800 rounded-3xl overflow-hidden shadow-lg"><img src="merapi-glowing-lava-tour.webp" alt="Glowing lava on Mount Merapi at night" width="640" height="384" loading="lazy" class="w-full h-64 object-cover"><div class="p-6"><h3 class="font-bold text-xl">Merapi Glowing Lava</h3><p class="text-slate-400 text-sm">Night lava viewing with hiking and non-hiking options.</p></div></article>
-<article class="bg-slate-800 rounded-3xl overflow-hidden shadow-lg"><img src="jomblang-cave-tour-jogja.webp" alt="Light beam inside Jomblang vertical cave" width="640" height="384" loading="lazy" class="w-full h-64 object-cover"><div class="p-6"><h3 class="font-bold text-xl">Cave Adventure</h3><p class="text-slate-400 text-sm">Jomblang vertical cave and Pindul river tubing.</p></div></article>
+<article class="bg-slate-800 rounded-3xl overflow-hidden shadow-lg"><img src="borobudur-sunrise-tour-jogja.webp" alt="Sunrise over Borobudur temple in Yogyakarta" width="640" height="384" loading="lazy" decoding="async" class="w-full h-64 object-cover"><div class="p-6"><h3 class="font-bold text-xl">Temple Tour</h3><p class="text-slate-400 text-sm">Borobudur Sunrise & Prambanan, with climb-up access to the Borobudur structure.</p></div></article>
+<article class="bg-slate-800 rounded-3xl overflow-hidden shadow-lg"><img src="merapi-glowing-lava-tour.webp" alt="Glowing lava on Mount Merapi at night" width="640" height="384" loading="lazy" decoding="async" class="w-full h-64 object-cover"><div class="p-6"><h3 class="font-bold text-xl">Merapi Glowing Lava</h3><p class="text-slate-400 text-sm">Night lava viewing with hiking and non-hiking options.</p></div></article>
+<article class="bg-slate-800 rounded-3xl overflow-hidden shadow-lg"><img src="jomblang-cave-tour-jogja.webp" alt="Light beam inside Jomblang vertical cave" width="640" height="384" loading="lazy" decoding="async" class="w-full h-64 object-cover"><div class="p-6"><h3 class="font-bold text-xl">Cave Adventure</h3><p class="text-slate-400 text-sm">Jomblang vertical cave and Pindul river tubing.</p></div></article>
 </div></div>
 </section>
 
@@ -216,31 +324,31 @@ a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{ou
 </div>
 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
 <article class="card"><div class="badge-off">🔥 25% OFF</div><div>
-<img src="prambanan-temple-tour-jogja.webp" alt="Prambanan temple towers near Yogyakarta" width="640" height="384" loading="lazy" class="w-full h-48 object-cover">
+<img src="prambanan-temple-tour-jogja.webp" alt="Prambanan temple towers near Yogyakarta" width="640" height="384" loading="lazy" decoding="async" class="w-full h-48 object-cover">
 <div class="p-6"><div class="flex flex-wrap items-center mb-2 gap-1"><span class="tag bg-amber-500/20 text-amber-400">Best Seller</span><span class="pick text-slate-300">⏰ Pick-up: 07:00 / 08:00 / 09:00 AM</span></div>
 <h3 class="font-bold text-xl mt-1 mb-1">Borobudur + Prambanan</h3><p class="text-sm text-slate-400 mb-3">Regular day temple tour. Visit the world's largest Buddhist temple and the 9th-century Hindu temples of Prambanan in one day.</p>
 <div class="old">Normal: IDR 1,464,286 /pax</div><div class="new">IDR 1,098,000 <small>/pax (5 pax, foreigner)</small></div><p class="text-xs text-slate-400 mb-6">*) Includes official climb-up access, guide & Upanat sandals. (Local/Indonesian resident rate from IDR 396k/pax).</p></div></div>
 <div class="p-6 pt-0"><a href="#booking" onclick="selectPackage('Borobudur + Prambanan')" class="sel">Select Package</a></div></article>
 <article class="card"><div class="badge-off">🔥 25% OFF</div><div>
-<img src="borobudur-sunrise-tour-jogja.webp" alt="Borobudur sunrise tour with Mount Merapi view" width="640" height="384" loading="lazy" class="w-full h-48 object-cover">
+<img src="borobudur-sunrise-tour-jogja.webp" alt="Borobudur sunrise tour with Mount Merapi view" width="640" height="384" loading="lazy" decoding="async" class="w-full h-48 object-cover">
 <div class="p-6"><div class="flex flex-wrap items-center mb-2 gap-1"><span class="tag bg-orange-500/20 text-orange-400">Sunrise</span><span class="pick text-amber-400">⏰ Pick-up: 03:30 AM</span></div>
 <h3 class="font-bold text-xl mt-1 mb-1">Borobudur Sunrise Only</h3><p class="text-sm text-slate-400 mb-3">Watch dawn break over Borobudur Monument and the Menoreh hills.</p>
 <div class="old">Normal: IDR 1,671,429 /pax</div><div class="new">IDR 1,254,000 <small>/pax (5 pax, foreigner)</small></div><p class="text-xs text-slate-400 mb-6">*) Includes official sunrise ticket & automatic climb-up access. (Local/Indonesian resident rate from IDR 986k/pax).</p></div></div>
 <div class="p-6 pt-0"><a href="#booking" onclick="selectPackage('Borobudur Sunrise Only')" class="sel">Select Package</a></div></article>
 <article class="card"><div class="badge-off">🔥 25% OFF</div><div>
-<img src="borobudur-sunrise-tour-jogja-1.webp" alt="Borobudur sunrise and Prambanan combo tour" width="640" height="384" loading="lazy" class="w-full h-48 object-cover">
+<img src="borobudur-sunrise-tour-jogja-1.webp" alt="Borobudur sunrise and Prambanan combo tour" width="640" height="384" loading="lazy" decoding="async" class="w-full h-48 object-cover">
 <div class="p-6"><div class="flex flex-wrap items-center mb-2 gap-1"><span class="tag bg-red-500/20 text-red-400">Ultimate Combo</span><span class="pick text-amber-400">⏰ Pick-up: 03:30 AM</span></div>
 <h3 class="font-bold text-xl mt-1 mb-1">Borobudur Sunrise + Prambanan</h3><p class="text-sm text-slate-400 mb-3">Sunrise at Borobudur first, then Prambanan later in the day.</p>
 <div class="old">Normal: IDR 2,242,857 /pax</div><div class="new">IDR 1,682,000 <small>/pax (5 pax, foreigner)</small></div><p class="text-xs text-slate-400 mb-6">*) Premium all-in combo. Borobudur climb-up included. (Local/Indonesian resident rate from IDR 1,039k/pax).</p></div></div>
 <div class="p-6 pt-0"><a href="#booking" onclick="selectPackage('Borobudur Sunrise + Prambanan')" class="sel">Select Package</a></div></article>
 <article class="card"><div class="badge-off">🔥 25% OFF</div><div>
-<img src="merapi-glowing-lava-tour-1.webp" alt="Merapi glowing lava tour viewpoint at night" width="640" height="384" loading="lazy" class="w-full h-48 object-cover">
+<img src="merapi-glowing-lava-tour-1.webp" alt="Merapi glowing lava tour viewpoint at night" width="640" height="384" loading="lazy" decoding="async" class="w-full h-48 object-cover">
 <div class="p-6"><div class="flex flex-wrap items-center mb-2 gap-1"><span class="tag bg-blue-500/20 text-blue-400">Night Adventure</span><span class="pick text-blue-300">⏰ Pick-up: 07:00 PM</span></div>
 <h3 class="font-bold text-xl mt-1 mb-1">Merapi Glowing Lava</h3><p class="text-sm text-slate-400 mb-3">Night trip to a Merapi viewpoint. Sharing transport and guide; viewpoint fees included.</p>
 <div class="old">Normal: IDR 785,714 /pax</div><div class="new">IDR 589,000 <small>/pax</small></div><div class="bg-red-500/10 border border-red-500/30 rounded-xl p-2.5 mb-4 text-[11px] text-red-300 leading-tight">⚠️ <strong>NO GUARANTEE:</strong> Glowing lava sighting depends on nature and weather conditions. Customers must agree to this risk.</div></div></div>
 <div class="p-6 pt-0"><a href="#booking" onclick="selectPackage('Merapi Glowing Lava')" class="sel">Select Package</a></div></article>
 <article class="card"><div class="badge-off">🔥 25% OFF</div><div>
-<img src="jomblang-cave-tour-jogja-1.webp" alt="Jomblang vertical cave adventure in Gunungkidul" width="640" height="384" loading="lazy" class="w-full h-48 object-cover">
+<img src="jomblang-cave-tour-jogja-1.webp" alt="Jomblang vertical cave adventure in Gunungkidul" width="640" height="384" loading="lazy" decoding="async" class="w-full h-48 object-cover">
 <div class="p-6"><div class="flex flex-wrap items-center mb-2 gap-1"><span class="tag bg-emerald-500/20 text-emerald-400">Nature</span><span class="pick text-slate-300">⏰ Pick-up: 07:00 AM</span></div>
 <h3 class="font-bold text-xl mt-1 mb-1">Jomblang + Pindul Cave</h3><p class="text-sm text-slate-400 mb-3">Private cave adventure: descend into Jomblang, then float through Pindul cave by tube.</p>
 <div class="old">Normal: IDR 1,714,286 /group</div><div class="new">IDR 1,286,000 <small>/group</small></div><p class="text-xs text-slate-400 mb-6">*) Private transport, guide, safety gear, lunch & all tickets included.</p></div></div>
@@ -332,7 +440,7 @@ a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{ou
 <div class="border-t border-slate-700 pt-3 flex justify-between items-baseline text-2xl font-black"><span class="text-white">Promo Total</span><span id="valGrandTotal" class="text-amber-400">IDR 0</span></div>
 <div class="text-right mt-1"><span id="valPerPax" class="text-[11px] text-slate-400"></span></div>
 </div>
-<button onclick="bookViaWhatsApp()" class="mt-6 w-full bg-gradient-to-r from-green-600 via-emerald-600 to-green-600 hover:from-green-500 hover:to-emerald-500 py-4 rounded-2xl font-black text-lg uppercase tracking-wider shadow-xl shadow-green-900/30 transition">⚡ Claim Discount via WhatsApp</button>
+<button onclick="bookViaWhatsApp()" class="mt-6 w-full bg-gradient-to-r from-green-600 via-emerald-600 to-green-600 hover:from-green-500 hover:to-emerald-500 py-4 rounded-2xl font-black text-lg uppercase tracking-wider shadow-xl transition">⚡ Claim Discount via WhatsApp</button>
 </div>
 </section>
 </main>
