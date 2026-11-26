@@ -1,4 +1,4 @@
-name: Auto Generate Sitemap Prambanan
+name: Auto Generate Sitemap Join Trip Jogja
 
 on:
   push:
@@ -22,7 +22,7 @@ jobs:
 
       - name: Generate sitemap.xml
         run: |
-          DOMAIN="https://prambanan.biz.id"
+          DOMAIN="https://jointripjogja.my.id"
           echo '<?xml version="1.0" encoding="UTF-8"?>' > sitemap.xml
           echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> sitemap.xml
           find . -type f -name "*.html" ! -path "./.git/*" | sort | while read -r file; do
@@ -44,6 +44,6 @@ jobs:
       - name: Commit and push sitemap.xml
         run: |
           git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add sitemap.xml
           git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update full sitemap.xml" && git push)
