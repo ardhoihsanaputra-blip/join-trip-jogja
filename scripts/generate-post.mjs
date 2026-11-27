@@ -47,6 +47,35 @@ const TOPICS = [
   }
 ];
 
+async function generateWithRetry(promptText, maxAttempts = 4) {
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=${encodeURIComponent(apiKey)}`;
+
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        contents: [{ parts: [{ text: promptText }] }]
+      })
+    });
+
+    if (response.ok) {
+      return response.json();
+    }
+
+    const errText = await response.text();
+    const isRetryable = response.status === 503 || response.status === 429;
+
+    if (!isRetryable || attempt === maxAttempts) {
+      throw new Error(`Gemini API error ${response.status}: ${errText}`);
+    }
+
+    const waitMs = attempt * 3000;
+    console.warn(`Attempt ${attempt} got ${response.status}. Retrying in ${waitMs / 1000}s...`);
+    await new Promise((resolve) => setTimeout(resolve, waitMs));
+  }
+}
+
 const existingFiles = new Set(fs.readdirSync(blogDir));
 const nextTopic = TOPICS.find((t) => !existingFiles.has(`${t.slug}.html`));
 
@@ -69,23 +98,7 @@ Strict Output & SEO Rules:
 - Factual accuracy rules: Borobudur climb-up is closed every Monday for maintenance; Merapi glowing lava has NO GUARANTEE as it depends on weather and volcanic activity; pick-up times are Borobudur Sunrise 03:30 AM, Borobudur + Prambanan 07:00/08:00/09:00 AM, Cave tours 07:00 AM, Merapi Lava 07:00 PM.
 `;
 
-  const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=${encodeURIComponent(apiKey)}`,
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }]
-      })
-    }
-  );
-
-  if (!response.ok) {
-    const errText = await response.text();
-    throw new Error(`Gemini API error ${response.status}: ${errText}`);
-  }
-
-  const data = await response.json();
+  const data = await generateWithRetry(prompt);
   let html = data?.candidates?.[0]?.content?.parts?.[0]?.text ?? "";
   html = html.replace(/^```html\s*/i, "").replace(/```\s*$/i, "").trim();
 
