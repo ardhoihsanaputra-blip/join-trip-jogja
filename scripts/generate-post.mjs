@@ -82,7 +82,7 @@ const nextTopic = TOPICS.find((t) => !existingFiles.has(`${t.slug}.html`));
 if (nextTopic) {
   const todayISO = new Date().toISOString().split("T")[0];
   const prompt = `
-Write a complete, helpful English travel blog post for Join Trip Jogja (https://jointripjogja.my.id/blog/${nextTopic.slug}.html).
+Write a SHORT, punchy English travel blog post for Join Trip Jogja (https://jointripjogja.my.id/blog/${nextTopic.slug}.html).
 Title: ${nextTopic.title}
 Hero Image: ${nextTopic.image}
 Publish Date: ${todayISO}
@@ -93,6 +93,8 @@ Strict Output & SEO Rules:
 - Use <html lang="en">, <meta name="viewport" content="width=device-width, initial-scale=1.0">, <title>${nextTopic.title} | Join Trip Jogja</title>, concise <meta name="description">, and <link rel="canonical" href="https://jointripjogja.my.id/blog/${nextTopic.slug}.html">.
 - Include <link rel="icon" type="image/png" sizes="192x192" href="/logo.png"> and <link rel="preload" as="image" href="${nextTopic.image}" fetchpriority="high">.
 - Do NOT load cdn.tailwindcss.com or external JS frameworks. Use clean embedded CSS with dark slate background (#020617 / #0f172a), crisp contrast, and underlined text links (#fde68a) so every link is distinguishable without hover.
+- Keep the article SHORT: about 130-180 words of body text (excluding header/footer), 2-3 short sections at most, punchy sentences that make the reader want the tour.
+- Do NOT show any prices anywhere: no IDR, Rp, or price numbers. Instead end with a callout directing readers to https://jointripjogja.my.id/#booking to see the tour and book, plus the WhatsApp CTA.
 - Include sticky top header with logo (/logo.png inside white circle badge), JOIN TRIP JOGJA brand link to /, and CTA button to /#booking.
 - Include breadcrumb (<a href="/">Home</a> / <a href="/blog.html">Blog</a>), H1 title, publish date (${todayISO}), hero <img> with width="1200" height="630" fetchpriority="high" (NO loading="lazy"), structured H2 sections, practical tips, and a clear WhatsApp booking CTA linking to https://wa.me/6282227041521.
 - Factual accuracy rules: Borobudur climb-up is closed every Monday for maintenance; Merapi glowing lava has NO GUARANTEE as it depends on weather and volcanic activity; pick-up times are Borobudur Sunrise 03:30 AM, Borobudur + Prambanan 07:00/08:00/09:00 AM, Cave tours 07:00 AM, Merapi Lava 07:00 PM.
